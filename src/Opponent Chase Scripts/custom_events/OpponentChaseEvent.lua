@@ -4,6 +4,7 @@ local barY = 0
 local barWidth = 0
 local initialized = false
 local enabled2 = false
+local initialized2 = false
 
 function onEvent(name, value1, value2)
     if name == "OpponentChaseEvent" then
@@ -44,9 +45,9 @@ function onEvent(name, value1, value2)
         if value2 == "true" then
             enabled2 = true
 
-            if not initialized then
+            if not initialized2 then
                 setProperty('health', 2)
-                initialized = true
+                initialized2 = true
             end
         
             barX = getProperty('healthBar.x')
@@ -63,9 +64,9 @@ function onEvent(name, value1, value2)
         else
             enabled2 = false
 
-            if initialized then
+            if initialized2 then
                 setProperty('health', 1)
-                initialized = false
+                initialized2 = false
             end
         
             barX = getProperty('healthBar.x')
