@@ -20,10 +20,9 @@ function onCreatePost()
 end
 
 function onUpdatePost(elapsed)
-    healthPercent = remapToRange(getProperty('healthBar.percent'), 0, -100, 100, 0)
 
-    setProperty('iconP1.x', -593+getProperty('healthBar.x') + (getProperty('healthBar.width')*(remapToRange(getProperty('healthBar.percent'), 0, -100, 100, 0)*0.01))-(150 * getProperty('iconP1.scale.x'))/2 - 26*2)
-    setProperty('iconP2.x', -593+getProperty('healthBar.x') + (getProperty('healthBar.width')*(remapToRange(getProperty('healthBar.percent'), 0, -100, 100, 0)*0.01))+(150 * getProperty('iconP2.scale.x')-150)/2 - 26)
+    setProperty('iconP1.x', - 110 + getProperty('healthBar.x') + ((getProperty('healthBar.width') * getProperty('healthBar.percent') * 0.01) + (150 * getProperty('iconP1.scale.x') - 150) / 2 - 26))
+    setProperty('iconP2.x', 110 + getProperty('healthBar.x') + ((getProperty('healthBar.width') * getProperty('healthBar.percent') * 0.01) - (150 * getProperty('iconP2.scale.x')) / 2 - 26 * 2))
     -- setProperty('iconP2.x', barX - 75)
     -- setProperty('iconP2.y', barY - 75)
 
@@ -34,8 +33,4 @@ function onUpdatePost(elapsed)
     setProperty('iconP1.origin.y', 0)
     -- setProperty('iconP2.origin.x', 0)
     -- setProperty('iconP2.origin.y', 0)
-end
-
-function remapToRange(value, start1, stop1, start2, stop2)
-    return start2 + (value - start1) * ((stop2 - start2) / (stop1 - start1))
 end
