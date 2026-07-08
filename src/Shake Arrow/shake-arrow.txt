@@ -1,0 +1,2 @@
+Value 1: Opponent On/Off, Indensity
+Value 2: Player On/Off, Indensity
